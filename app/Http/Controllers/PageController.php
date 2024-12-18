@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
     public function index()
     {
         return view('index');
+    }
+    public function welcome()
+    {
+        return view('welcome');
     }
 
     public function about()
@@ -35,4 +40,15 @@ class PageController extends Controller
     {
         return view('register');
     }
+
+
+public function data()
+{
+    // Fetch all records from the products table
+    $products = DB::table('products')->get();
+
+    // Pass the data to the Blade view
+    return view('products', compact('products'));
+}
+
 }

@@ -13,7 +13,7 @@
    @include('partials.header')
    <div>
     @yield('content')
-</div>
+    </div>
     @include('partials.footer')
     
 

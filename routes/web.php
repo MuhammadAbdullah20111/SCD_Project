@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ProductItemController;
+
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/about', [PageController::class, 'about']);
@@ -10,6 +13,12 @@ Route::get('/contact', [PageController::class, 'contact']);
 Route::get('/products', [PageController::class, 'products']);
 Route::get('/login', [PageController::class, 'login']);
 Route::get('/register', [PageController::class, 'register']);
+Route::get('/products', [PageController::class, 'data'])->name('products.data');
+
+
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('products', ProductItemController::class);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

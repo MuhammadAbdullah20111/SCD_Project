@@ -1,37 +1,92 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background color for the page */
 }
 
 /* Card Styles */
 .card-img-top {
-    height: 200px;
-    object-fit: cover;
+    height: 300px; 
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border-radius: 10px 10px 0 0; /* Rounded top corners for the image */
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #ddd; /* Light border around the card */
+    border-radius: 10px; /* Rounded corners for the card */
+    background-color: #fff; /* White background for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a clean look */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition effect */
 }
 
+/* Card Hover Effect */
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Card Body */
+.card-body {
+    padding: 15px; /* Padding inside the card body */
+    text-align: center; /* Center-align text in the card */
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.25rem; /* Slightly larger text for the title */
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    margin-bottom: 10px;
+}
+
+/* Card Text (Price) */
+.card-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #007bff; /* Blue color for price */
+    margin-bottom: 10px; /* Space between price and other content */
 }
 
 /* Footer Styles */
 footer {
-    background-color: #343a40;
-    color: #ffffff;
+    background-color: #343a40; /* Dark background for footer */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    padding: 20px 0; /* Padding for spacing */
 }
 
 /* Search and Filter Styles */
 #searchInput,
 #brandFilter {
     margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Light border for inputs */
+    width: 100%; /* Make the search and filter inputs full-width */
+    box-sizing: border-box;
+}
+
+#searchInput:focus,
+#brandFilter:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight input border on focus */
 }
 
 /* Grid Gaps */
 .row-cols-md-3 > * {
     padding: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px; /* Add space between cards on smaller screens */
+    }
+
+    .row-cols-md-3 > * {
+        padding: 5px; /* Reduce padding for smaller screens */
+    }
 }

@@ -4,7 +4,7 @@ body {
 }
 
 .hero {
-    background-image: url('background.jpg'); /* Replace with your image */
+    background-image: url('/background.jpg'); /* Replace with your image */
     height: 100vh;
     background-size: cover ;
     position: relative;
