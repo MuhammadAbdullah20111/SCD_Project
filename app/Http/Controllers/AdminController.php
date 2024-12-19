@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductItem;
-use Illuminate\Http\Request;
-
 use App\Models\Product;
-
+use Illuminate\Http\Request;
 class AdminController extends Controller
 {
+
+    public function admin()
+    {
+        return view('layouts.admin'); // Points to your "admin.blade.php" file
+    }
+    
     // Display all products
     public function index() {
         $products = Product::all(); // Fetch all products

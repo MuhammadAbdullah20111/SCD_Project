@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\ProductItemController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', [PageController::class, 'index']);
@@ -17,7 +17,7 @@ Route::get('/products', [PageController::class, 'data'])->name('products.data');
 
 
 Route::prefix('admin')->name('admin.')->group(function() {
-    Route::resource('products', ProductItemController::class);
+    Route::resource('products', AdminController::class);
 });
 
 Route::get('/dashboard', function () {
@@ -30,4 +30,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Admin Dashboard Route
+Route::get('/Layouts/admin', function () {
+    return view('admin.admin'); // Adjust if the view is named differently
+})->name('admin.dashboard')->middleware('auth');
+Route::get('/layouts/admin', [AdminController::class, 'admin'])->name('admin');
+
+Route::get('/admin/create', [AdminController::class, 'create'])->name('create');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('store');
+Route::get('/{id}/edit', [AdminController::class, 'edit'])->name('edit');
+Route::put('/{id}', [AdminController::class, 'update'])->name('update');
+Route::delete('/{id}', [AdminController::class, 'destroy'])->name('destroy');
 require __DIR__.'/auth.php';
